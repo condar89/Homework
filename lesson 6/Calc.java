@@ -10,27 +10,24 @@ public class Calc{
 		System.out.println("\nInsert your second number");
 		int secondNumber = scanner.nextInt();
 		scanner.close();
-		double theAnswer;
-		if (operation == '+'){ 
+		double theAnswer = 0 ;
+		if (operation == '+'){
 		theAnswer = firstNumber + secondNumber;
-		System.out.println("\nThe Answer is:" + theAnswer);
-		} 
-		if (operation == '-'){
+		}
+		else if (operation == '-'){
 		theAnswer = firstNumber - secondNumber;
-		System.out.println("\nThe Answer is:" + theAnswer);
 		}
-		if (operation == '/'){
-		theAnswer = firstNumber / secondNumber;
-		System.out.print("\nThe Answer is:" + theAnswer);
-		}
-		if (operation == '*'){
+		else if (operation == '*'){
 		theAnswer = firstNumber * secondNumber;
-		System.out.print("\nThe Answer is:" + theAnswer);
 		}
-		if (operation == '%'){
+		else if (operation == '%'){
 		theAnswer = firstNumber % secondNumber;	
-		System.out.print("\nThe Answer is:" + theAnswer );
 		}
-		
+		else if (operation == '/'){
+		theAnswer = (double) firstNumber / secondNumber;
+		}
+		else {theAnswer = 707.7090709.;
+		}
+		System.out.println("\nThe Answer is: " + theAnswer );
 	}
 }
