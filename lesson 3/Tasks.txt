@@ -1,6 +1,6 @@
--comanda "git add" adauga fisierele existente in rechizitoriu;
+-comanda "git add" adauga fisierele existente in repozitoriu;
  comanda "git init" creaza un repozitoriu nou caverificare apare un directoriu ascuns cu denumirea .git
  comanda "git commit" salveaza toate modificarile efectuate dupa comanda git add
- comanda "git push" trimite rechizitoriul la pastrare pe platforma aleasa remote
+ comanda "git push" trimite repozitoriul la pastrare pe platforma aleasa remote
 -coperea fisierului este posibil cu comanda copy , copierea unui fisier nou se efectueaza cu ajutorul comenzii copy NUL (denumirea fisierului).txt
 -stergerea tuturor fisierelor de tip mp3 dintr-un directoriu se efectueaza cu ajutorul comenzii del *.mp3
