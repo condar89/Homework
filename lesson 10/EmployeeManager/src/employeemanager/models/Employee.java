@@ -11,8 +11,8 @@ package employeemanager.models;
  */
 public class Employee {
 
-    public String protectedname;
-    public String publicsurname;
-    public int privetage;
+    public String name;
+    public String surname;
+    public int age;
 
 }

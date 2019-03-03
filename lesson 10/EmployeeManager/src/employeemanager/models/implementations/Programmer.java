@@ -18,9 +18,9 @@ import employeemanager.models.Employee;
 public class Programmer extends Employee {
      public static void main( Employee x){
          Employee programmer = new Employee();
-         programmer.protectedname = "Jhon";
-         programmer.publicsurname = "Doe";
-         programmer.privetage = 30;
+         programmer.name = "Jhon";
+         programmer.surname = "Doe";
+         programmer.age = 30;
         
           }
      }

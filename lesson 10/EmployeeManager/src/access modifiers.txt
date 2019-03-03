@@ -1,0 +1,9 @@
+Answer
+We will not have access to proctected type variables from another package. To access variables from another package they should
+have access modifiers public
+
+So the variats are to modify access of the attribute in public, to create classes in the pachage models or to create subclasses in class Employeer
+
+If the attributes are of the protected type, we can only access them from the same package, the same class, or a subclass
+
+The attributes that are private can be access from the same class

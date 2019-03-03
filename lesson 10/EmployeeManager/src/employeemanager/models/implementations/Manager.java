@@ -14,8 +14,8 @@ import employeemanager.models.Employee;
 public class Manager {
     public static void main(String[] args){
          Employee manager = new Employee();
-         manager.protectedname = "Michael";
-         manager.publicsurname = "Lee";
-         manager.privetage = 31;
+         manager.name = "Michael";
+         manager.surname = "Lee";
+         manager.age = 31;
     }
 }
