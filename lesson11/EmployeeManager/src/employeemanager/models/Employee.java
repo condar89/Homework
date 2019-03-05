@@ -9,7 +9,7 @@ package employeemanager.models;
  *
  * @author 37367
  */
-public class Employee {
+public abstract class Employee {
 
     public String name;
     public String surname;
@@ -18,5 +18,7 @@ public class Employee {
     public String street;
     public String houseNumber;
     public String apNumber;
+
+    public abstract void show();
 
 }

@@ -1,40 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package employeemanager.models.implementations;
 
 import employeemanager.models.Employee;
 
-/**
- *
- * @author 37367
- */
-public class Bookeeper extends Employee {
+public class Manager extends Employee {
 
-    public Bookeeper() {
+    public Manager() {
     }
 
-    public Bookeeper(String name, String surname) {
+    public Manager(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public Bookeeper(String name, String surname, int yearOfBirth) {
+    public Manager(String name, String surname, int yearOfBirth) {
         this.name = name;
         this.surname = surname;
         this.yearOfBirth = yearOfBirth;
     }
 
-    public Bookeeper(String name, String surname, int yearOfBirth, int idnp) {
+    public Manager(String name, String surname, int yearOfBirth, int idnp) {
         this.name = name;
         this.surname = surname;
         this.yearOfBirth = yearOfBirth;
         this.idnp = idnp;
     }
 
-    public Bookeeper(String name, String surname, int yearOfBirth, int idnp, String street, String houseNumber, String apNumber) {
+    public Manager(String name, String surname, int yearOfBirth, int idnp, String street, String houseNumber, String apNumber) {
         this.name = name;
         this.surname = surname;
         this.yearOfBirth = yearOfBirth;
@@ -42,6 +33,11 @@ public class Bookeeper extends Employee {
         this.street = street;
         this.houseNumber = houseNumber;
         this.apNumber = apNumber;
+    }
+
+    @Override
+    public void show() {
+        System.out.println("Manager is a person responsible for controlling or administering an organization or group of staff");
     }
 
 }
