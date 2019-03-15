@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculatorgui;
 
-/**
- *
- * @author 37367
- */
 public class GUI extends javax.swing.JFrame {
 
     /**
@@ -28,17 +19,17 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblNumber2 = new javax.swing.JLabel();
+        lblNumber1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtFieldNumber2 = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtFieldNumber1 = new javax.swing.JTextPane();
+        buttonPlus = new javax.swing.JButton();
+        buttonMinus = new javax.swing.JButton();
+        buttonDivide = new javax.swing.JButton();
+        buttonMultiply = new javax.swing.JButton();
+        lblResult = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -47,37 +38,58 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("NUMBER 2");
+        lblNumber2.setText("NUMBER 2");
 
-        jLabel3.setText("NUMBER 1");
+        lblNumber1.setText("NUMBER 1");
 
-        jTextPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextPane1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextPane1.setToolTipText("");
-        jTextPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(jTextPane1);
+        txtFieldNumber2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtFieldNumber2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtFieldNumber2.setToolTipText("");
+        txtFieldNumber2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(txtFieldNumber2);
 
-        jTextPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextPane2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextPane2.setToolTipText("");
-        jTextPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane2.setViewportView(jTextPane2);
+        txtFieldNumber1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        txtFieldNumber1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        txtFieldNumber1.setToolTipText("");
+        txtFieldNumber1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane2.setViewportView(txtFieldNumber1);
 
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton3.setText("+");
+        buttonPlus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonPlus.setText("+");
+        buttonPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPlusActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton4.setText("-");
+        buttonMinus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonMinus.setText("-");
+        buttonMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMinusActionPerformed(evt);
+            }
+        });
 
-        jButton5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton5.setText("/");
+        buttonDivide.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonDivide.setText("/");
+        buttonDivide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDivideActionPerformed(evt);
+            }
+        });
 
-        jButton6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton6.setText("*");
+        buttonMultiply.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonMultiply.setText("*");
+        buttonMultiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMultiplyActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("RESULT");
+        lblResult.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblResult.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblResult.setText("RESULT");
+        lblResult.setToolTipText("");
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -94,8 +106,8 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblNumber1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(lblNumber2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -107,15 +119,15 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
@@ -124,24 +136,86 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblNumber1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonMinus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDivide, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addComponent(lblResult, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlusActionPerformed
+        // read number1
+        String number1String = txtFieldNumber1.getText();
+
+        // read number 2
+        String number2String = txtFieldNumber2.getText();
+
+        // sum ?
+        double number1Dbl = Double.parseDouble(number1String);
+        double number2Dbl = Double.parseDouble(number2String);
+        double sum = number1Dbl + number2Dbl;
+
+        // show result
+        lblResult.setText(String.valueOf(sum));
+    }//GEN-LAST:event_buttonPlusActionPerformed
+
+    private void buttonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMinusActionPerformed
+        String number1String = txtFieldNumber1.getText();
+        String number2String = txtFieldNumber2.getText();
+        double number1Dbl = Double.parseDouble(number1String);
+        double number2Dbl = Double.parseDouble(number2String);
+        double minus = number1Dbl - number2Dbl;
+        lblResult.setText(String.valueOf(minus));
+    }//GEN-LAST:event_buttonMinusActionPerformed
+
+    private void buttonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMultiplyActionPerformed
+        calculate('*');
+    }//GEN-LAST:event_buttonMultiplyActionPerformed
+
+    private void buttonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDivideActionPerformed
+        calculate('/');
+    }//GEN-LAST:event_buttonDivideActionPerformed
+    private void calculate(char operation) {
+        String number1String = txtFieldNumber1.getText();
+        String number2String = txtFieldNumber2.getText();
+        double number1Dbl = Double.parseDouble(number1String);
+        double number2Dbl = Double.parseDouble(number2String);
+        double result;
+        switch (operation) {
+            case '/': {
+                result = number1Dbl / number2Dbl;
+                break;
+            }
+            case '+': {
+                result = number1Dbl + number2Dbl;
+                break;
+            }
+            case '-': {
+                result = number1Dbl - number2Dbl;
+                break;
+            }
+            case '*': {
+                result = number1Dbl * number2Dbl;
+                break;
+            }
+            default: {
+                result = 0;
+            }
+        }
+        lblResult.setText(result + "");
+    }
 
     /**
      * @param args the command line arguments
@@ -179,20 +253,20 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton buttonDivide;
+    private javax.swing.JButton buttonMinus;
+    private javax.swing.JButton buttonMultiply;
+    private javax.swing.JButton buttonPlus;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JLabel lblNumber1;
+    private javax.swing.JLabel lblNumber2;
+    private javax.swing.JLabel lblResult;
+    private javax.swing.JTextPane txtFieldNumber1;
+    private javax.swing.JTextPane txtFieldNumber2;
     // End of variables declaration//GEN-END:variables
 }
