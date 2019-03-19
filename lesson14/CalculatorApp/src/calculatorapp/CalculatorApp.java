@@ -1,12 +1,59 @@
 package calculatorapp;
 
+import static java.lang.Double.toString;
+
 public class CalculatorApp extends javax.swing.JFrame {
 
     /**
      * Creates new form CalculatorApp
      */
+    double number, answer;
+    char operation;
+
     public CalculatorApp() {
         initComponents();
+    }
+
+    public enum Operations {
+        PLUS,
+        MINUS,
+        MULTIPLYING,
+        DIVISION,
+        PLUS_MINUS,
+        MODUS
+
+    }
+
+    private void calculate() {
+        switch (operation) {
+            case '/': {
+                answer = number / Double.parseDouble(txtArea.getText());
+                txtArea.setText(Double.toString(answer));
+                break;
+            }
+            case '+': {
+                answer = number + Double.parseDouble(txtArea.getText());
+                txtArea.setText(Double.toString(answer));
+                break;
+            }
+            case '-': {
+                answer = number - Double.parseDouble(txtArea.getText());
+                txtArea.setText(Double.toString(answer));
+                break;
+            }
+            case '*': {
+                answer = number * Double.parseDouble(txtArea.getText());
+                txtArea.setText(Double.toString(answer));
+                break;
+            }
+            case '%': {
+                answer = number % Double.parseDouble(txtArea.getText());
+                txtArea.setText(Double.toString(answer));
+            }
+            default: {
+                answer = 0;
+            }
+        }
     }
 
     /**
@@ -35,7 +82,7 @@ public class CalculatorApp extends javax.swing.JFrame {
         btnMinus = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
         btnSum = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        btnDot = new javax.swing.JButton();
         btnEquals = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
@@ -62,6 +109,11 @@ public class CalculatorApp extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtArea);
 
         btnProcents.setText("%");
+        btnProcents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProcentsActionPerformed(evt);
+            }
+        });
 
         btnCe.setText("СE");
         btnCe.addActionListener(new java.awt.event.ActionListener() {
@@ -71,8 +123,18 @@ public class CalculatorApp extends javax.swing.JFrame {
         });
 
         btnMultiply.setText("*");
+        btnMultiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplyActionPerformed(evt);
+            }
+        });
 
         btnPlusMinus.setText("+/-");
+        btnPlusMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusMinusActionPerformed(evt);
+            }
+        });
 
         btn7.setText("7");
         btn7.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +158,11 @@ public class CalculatorApp extends javax.swing.JFrame {
         });
 
         btnDivide.setText("/");
+        btnDivide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivideActionPerformed(evt);
+            }
+        });
 
         btn6.setText("6");
         btn6.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +172,11 @@ public class CalculatorApp extends javax.swing.JFrame {
         });
 
         btnMinus.setText("-");
+        btnMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinusActionPerformed(evt);
+            }
+        });
 
         btn3.setText("3");
         btn3.addActionListener(new java.awt.event.ActionListener() {
@@ -114,15 +186,25 @@ public class CalculatorApp extends javax.swing.JFrame {
         });
 
         btnSum.setText("+");
-
-        jButton15.setText(".");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        btnSum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                btnSumActionPerformed(evt);
+            }
+        });
+
+        btnDot.setText(".");
+        btnDot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDotActionPerformed(evt);
             }
         });
 
         btnEquals.setText("=");
+        btnEquals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEqualsActionPerformed(evt);
+            }
+        });
 
         btn4.setText("4");
         btn4.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +276,7 @@ public class CalculatorApp extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDot, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEquals, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -251,7 +333,7 @@ public class CalculatorApp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEquals)
-                    .addComponent(jButton15)
+                    .addComponent(btnDot)
                     .addComponent(btn0))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -260,61 +342,90 @@ public class CalculatorApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "0");
+        txtArea.setText(txtArea.getText() + "0");
     }//GEN-LAST:event_btn0ActionPerformed
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "1");
+        txtArea.setText(txtArea.getText() + "1");
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "2");
+        txtArea.setText(txtArea.getText() + "2");
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "3");
+        txtArea.setText(txtArea.getText() + "3");
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "4");
+        txtArea.setText(txtArea.getText() + "4");
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "5");
+        txtArea.setText(txtArea.getText() + "5");
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "6");
+        txtArea.setText(txtArea.getText() + "6");
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "7");
+        txtArea.setText(txtArea.getText() + "7");
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "8");
+        txtArea.setText(txtArea.getText() + "8");
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + "9");
+        txtArea.setText(txtArea.getText() + "9");
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnCeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeActionPerformed
         txtArea.setText("");
     }//GEN-LAST:event_btnCeActionPerformed
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        String number = txtArea.getText();
-        txtArea.setText(number + ".");
-    }//GEN-LAST:event_jButton15ActionPerformed
+    private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
+        txtArea.setText(txtArea.getText() + ".");
+    }//GEN-LAST:event_btnDotActionPerformed
+
+    private void btnSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumActionPerformed
+        number = Double.parseDouble(txtArea.getText());
+        operation = '+';
+        txtArea.setText("");
+    }//GEN-LAST:event_btnSumActionPerformed
+
+    private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
+        calculate();
+    }//GEN-LAST:event_btnEqualsActionPerformed
+
+    private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusActionPerformed
+        number = Double.parseDouble(txtArea.getText());
+        operation = '-';
+        txtArea.setText("");
+    }//GEN-LAST:event_btnMinusActionPerformed
+
+    private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivideActionPerformed
+        number = Double.parseDouble(txtArea.getText());
+        operation = '/';
+        txtArea.setText("");
+    }//GEN-LAST:event_btnDivideActionPerformed
+
+    private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
+        number = Double.parseDouble(txtArea.getText());
+        operation = '*';
+        txtArea.setText("");
+    }//GEN-LAST:event_btnMultiplyActionPerformed
+
+    private void btnPlusMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusMinusActionPerformed
+        number = Double.parseDouble(txtArea.getText());
+        number = number * (-1);
+        txtArea.setText(Double.toString(number));
+    }//GEN-LAST:event_btnPlusMinusActionPerformed
+
+    private void btnProcentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcentsActionPerformed
+        number = Double.parseDouble(txtArea.getText());
+        operation = '%';
+        txtArea.setText("");
+    }//GEN-LAST:event_btnProcentsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,6 +475,7 @@ public class CalculatorApp extends javax.swing.JFrame {
     private javax.swing.JButton btn9;
     private javax.swing.JButton btnCe;
     private javax.swing.JButton btnDivide;
+    private javax.swing.JButton btnDot;
     private javax.swing.JButton btnEquals;
     private javax.swing.JButton btnMinus;
     private javax.swing.JButton btnMultiply;
@@ -372,7 +484,6 @@ public class CalculatorApp extends javax.swing.JFrame {
     private javax.swing.JButton btnSum;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
